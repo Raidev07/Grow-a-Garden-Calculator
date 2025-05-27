@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fruit Mutation Compute Price</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <h1>Fruit Mutation Compute Price</h1>
+    <p style="max-width: 600px; margin: 0 auto 1rem auto; text-align: center; color: #555;">
+      This tool allows you to select a fruit and apply various mutations to compute the final price in Sheckles. Choose a fruit from the dropdown, select one or more mutations if available, and click "Compute Price" to see the result.
+    </p>
+    <form id="mutation-form">
+      <label for="fruit-select">Select Fruit</label>
+      <select id="fruit-select" name="fruit-select" required>
+        <option value="" disabled selected>Select a fruit</option>
+      </select>
+
+      <label for="mutation-select">Select Mutation</label>
+      <div id="mutation-checkboxes" style="margin-top: 5px; margin-bottom: 15px;"></div>
+
+      <button type="submit">Compute Price</button>
+    </form>
+
+    <div id="results" style="display: none">
+      <h2>Mutation Price Result</h2>
+      <div id="results-list"></div>
+    </div>
+
+    <footer style="max-width: 600px; margin: 2rem auto; text-align: center; color: #888; font-size: 0.9rem;">
+      &copy; 2024 Fruit Mutation Compute. All rights reserved. <br />
+      Author: Built by RaiDev also known as POH
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
