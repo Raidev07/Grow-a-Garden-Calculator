@@ -798,6 +798,23 @@ const fruitsData = {
       Disco: 125,
     },
   },
+  "Beanstalk": {
+    basePrice: 18050,
+    mutations: {
+      Moonlit: 2,
+      Choco: 2,
+      Wet: 2,
+      Chilled: 2,
+      Bloodlit: 4,
+      Frozen: 10,
+      Gold: 20,
+      Zombified: 25,
+      Rainbow: 50,
+      Shocked: 100,
+      Celetials: 120,
+      Disco: 125,
+    },
+  },
 };
 
 const fruitSelect = document.getElementById("fruit-select");
