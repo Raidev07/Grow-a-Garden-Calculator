@@ -13,10 +13,9 @@
       This tool allows you to select a fruit and apply various mutations to compute the final price in Sheckles. Choose a fruit from the dropdown, select one or more mutations if available, and click "Compute Price" to see the result.
     </p>
     <form id="mutation-form">
-      <label for="fruit-select">Select Fruit</label>
-      <select id="fruit-select" name="fruit-select" required>
-        <option value="" disabled selected>Select a fruit</option>
-      </select>
+      <label for="fruit-input">Select or Search Fruit</label>
+      <input list="fruit-list" id="fruit-input" name="fruit-input" placeholder="Type or select a fruit" autocomplete="off" required style="display: block; margin-bottom: 8px; width: 100%; max-width: 300px; padding: 4px;" />
+      <datalist id="fruit-list"></datalist>
 
       <label for="mutation-select">Select Mutation</label>
       <div id="mutation-checkboxes" style="margin-top: 5px; margin-bottom: 15px;"></div>

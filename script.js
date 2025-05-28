@@ -817,27 +817,34 @@ const fruitsData = {
   },
 };
 
-const fruitSelect = document.getElementById("fruit-select");
+const fruitInput = document.getElementById("fruit-input");
 const mutationSelect = document.getElementById("mutation-select");
 const resultsDiv = document.getElementById("results");
 const resultsList = document.getElementById("results-list");
 const form = document.getElementById("mutation-form");
 
-// Populate fruit dropdown on load
+const allFruits = Object.keys(fruitsData);
+
+// Populate datalist options on load
 window.addEventListener("DOMContentLoaded", () => {
-  for (const fruit in fruitsData) {
-    const option = document.createElement("option");
-    option.value = fruit;
-    option.textContent = fruit;
-    fruitSelect.appendChild(option);
+  function populateFruitDatalist(fruits) {
+    const fruitList = document.getElementById("fruit-list");
+    fruitList.innerHTML = "";
+    fruits.forEach((fruit) => {
+      const option = document.createElement("option");
+      option.value = fruit;
+      fruitList.appendChild(option);
+    });
   }
+
+  populateFruitDatalist(allFruits);
 });
 
-// Update mutation checkboxes based on selected fruit
-fruitSelect.addEventListener("change", () => {
+// Update mutation checkboxes based on selected fruit input
+fruitInput.addEventListener("input", () => {
   const mutationCheckboxes = document.getElementById("mutation-checkboxes");
   mutationCheckboxes.innerHTML = "";
-  const selectedFruit = fruitSelect.value;
+  const selectedFruit = fruitInput.value;
   if (selectedFruit && fruitsData[selectedFruit]) {
     const mutations = fruitsData[selectedFruit].mutations;
     for (const mutation in mutations) {
@@ -859,7 +866,7 @@ fruitSelect.addEventListener("change", () => {
 // Compute mutation on form submit
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  const selectedFruit = fruitSelect.value;
+  const selectedFruit = fruitInput.value;
   const mutationCheckboxes = document.querySelectorAll(
     '#mutation-checkboxes input[type="checkbox"]:checked'
   );
@@ -867,8 +874,8 @@ form.addEventListener("submit", (e) => {
     (checkbox) => checkbox.value
   );
 
-  if (!selectedFruit || selectedMutations.length === 0) {
-    alert("Please select both a fruit and at least one mutation.");
+  if (!selectedFruit || !fruitsData[selectedFruit] || selectedMutations.length === 0) {
+    alert("Please select a valid fruit and at least one mutation.");
     return;
   }
 
